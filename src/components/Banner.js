@@ -3,49 +3,57 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 const BannerContainer = styled.div`
-  height: 423px;
+  position: relative;
   background-color: ${props => props.bGColor};
   transition: 0.3s;
+  padding-top: 40px;
 
+  .bannerBg{
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+    height: 30px;
+  }
   .bannerContainer{
     max-width: 1216px;
     padding: 0 20px;
-    margin: auto;
+    margin: 0 auto;
     display: flex;
-    padding-top: 34px;
   }  
   
   .banners{
-    max-width: 676px;
-    aspect-ratio: 16/9.5;
-    overflow: hidden;
+    max-width: 660px;
+    aspect-ratio: 16/10;
     border-radius: 3px;
-
     box-shadow: 0 0 10px rgb(0,0,0,0.1);
+    overflow: hidden;
 
     div{
       position: relative;
-      left: -${props => props.currentBanner*696}px;
+      left: calc(100% * -${props => props.currentBanner});
+      width: calc(100% * 4);
       display: flex;
       transition: 0.5s ease;
 
+
       img{
-        max-width: 676px;
-        aspect-ratio: 16/9.5;
+        max-width: 25%;
+        aspect-ratio: 16/10;
         object-fit: cover;
         border-radius: 3px;
-        margin-right:20px;
+        /* margin-right:20px; */
       }
     }
   }
 
   .bannerInfo{
-    min-width: 300px;
+    min-width: 440px;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 30px;
+    padding: 60px 30px;
 
     .bannerTitle{
       div:nth-of-type(1){
@@ -80,7 +88,7 @@ const BannerContainer = styled.div`
 
       div{
         flex: 1;
-        border-top: 1px solid white;
+        border-top: 0.5px solid rgb(250,250,250,0.6);
       }
 
       .bannerBtn{
@@ -94,6 +102,40 @@ const BannerContainer = styled.div`
 
   }
 
+  @media (max-width:1024px) {
+    padding-top: 30px;
+    .banners{
+      max-width: 500px;
+    }
+    .bannerInfo{
+      min-width: 280px;
+      padding: 10px 30px 40px;
+      .bannerTitle{
+        div:nth-of-type(1){
+          margin-bottom: 0px;
+        }
+
+        div:nth-of-type(1) span{
+          font-size: 1.4rem;
+          line-height: 2rem;
+        }
+
+        div:nth-of-type(2) span{
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+  }
+    
+  @media (max-width: 635px) {
+      .banners{
+        max-width: 100%;
+      }
+      .bannerInfo{
+        display: none;
+      }
+    }
 
 `
 
@@ -121,6 +163,7 @@ function Banner() {
 
   return(
     <BannerContainer currentBanner={currentBanner} banner={banner} bGColor={banner[currentBanner].color}>
+      <div className="bannerBg"></div>
       <div className="bannerContainer">
         <div className="banners">
           <div>

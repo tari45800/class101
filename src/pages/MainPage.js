@@ -6,9 +6,9 @@ import RecentCalss from "../components/RecentCalss";
 function MainPage() {
   return(
     <>
-      {/* <Header></Header>
+      <Header></Header>
       <Banner></Banner>
-      <EventForm></EventForm> */}
+      <EventForm></EventForm>
       <RecentCalss></RecentCalss>
     </>
   )

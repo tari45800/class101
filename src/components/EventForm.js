@@ -32,20 +32,23 @@ const EventContainer = styled.div`
 
   .eventWindow{
     overflow: hidden;
+    max-width: 1216px;
+
 
     .eventBanners{
       position: relative;
       left: calc(((-1176px + (376px * 3)) / 2 - 376px) * ${props => props.currentEvent});
-      display: flex;
       gap: calc((1176px - (376px * 3)) / 2);
+      width: calc(33.33% * 20);
+      display: flex;
       transition: 0.4s;
 
       .eventBanner{
-        max-width: 376px;
-        display: inline-block;
+        max-width: calc(100% / 20);
       }
 
       img{
+        width: 100%;
         max-width: 376px;
         aspect-ratio: 16/9.5;
         object-fit: cover;
@@ -64,8 +67,6 @@ const EventContainer = styled.div`
     }
   }
 
-
-
   .eventBtn{
     position: absolute;
     top: 50%;
@@ -78,6 +79,34 @@ const EventContainer = styled.div`
     span{
       cursor: pointer;
       font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width:1024px) {
+    margin-top: 50px;
+
+    .eventContainer{
+      .eventTitle{
+        h1{
+          font-size: 1.2rem;
+          margin: 15px 0;
+        }
+      }
+    }
+
+    .eventWindow{
+      .eventBanners{
+        width: calc(100% * 20);
+        transition: none;
+        .eventBanner{
+          width: calc(100% / 20);
+        }
+        img{
+          width: 100%;
+          max-width: 100%;
+
+        } 
+      }
     }
   }
 `

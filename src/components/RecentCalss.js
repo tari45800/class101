@@ -4,7 +4,8 @@ import styled from "styled-components";
 import Item from "./Item";
 
 const RecentContainer = styled.div`
-  
+  margin-top: 100px;
+
   .RecentContainer{
     max-width: 1216px;
     padding: 0 8px;
@@ -23,6 +24,18 @@ const RecentContainer = styled.div`
   h2{
     margin: 10px 0;
     color: #aaa;
+  }
+
+  @media (max-width:1024px) {
+    margin-top: 50px;
+
+    h1{
+      font-size: 1.2rem;
+    }
+    h2{
+      font-size: 0.8rem;
+      margin: 5px 0;
+    }
   }
 
 `
