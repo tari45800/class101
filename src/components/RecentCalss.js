@@ -1,6 +1,48 @@
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import styled from "styled-components";
+import Item from "./Item";
+
+const RecentContainer = styled.div`
+  
+  .RecentContainer{
+    max-width: 1216px;
+    padding: 0 8px;
+    margin: 0 auto;
+  }
+
+  .listTitle{
+    padding: 0 12px;
+  }
+
+  h1{
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  h2{
+    margin: 10px 0;
+    color: #aaa;
+  }
+
+`
+
 function RecentCalss() {
+
+  const state = useSelector(state => state.itemReducer);
+  const { recent } = state;
+
   return(
-    <div>RecentCalss</div>
+    <RecentContainer>
+
+      <div className="RecentContainer">
+        <div className="listTitle">
+          <h1>최근 업데이트 클래스</h1>
+          <h2>크리에이터가 최근 활동한 클래스예요</h2>
+        </div>
+        {recent.map((el,idx) => <Item props={recent[idx]}></Item>)}
+      </div>
+    </RecentContainer>
   )
 }
 

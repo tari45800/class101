@@ -1,11 +1,15 @@
 import Header from "../components/Header";
-import Header2 from "../components/Header2";
+import Banner from "../components/Banner";
+import EventForm from "../components/EventForm";
+import RecentCalss from "../components/RecentCalss";
 
 function MainPage() {
   return(
     <>
-      <Header2></Header2>
-      
+      {/* <Header></Header>
+      <Banner></Banner>
+      <EventForm></EventForm> */}
+      <RecentCalss></RecentCalss>
     </>
   )
 }
