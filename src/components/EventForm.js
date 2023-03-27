@@ -72,7 +72,8 @@ const EventContainer = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1260px;
+    width: 100%;
+    max-width: 1260px;
     display: flex;
     justify-content: space-between;
 
@@ -108,6 +109,9 @@ const EventContainer = styled.div`
         } 
       }
     }
+    .eventBtn{
+      display: none;
+    } 
   }
 `
 
